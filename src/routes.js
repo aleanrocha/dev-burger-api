@@ -18,6 +18,7 @@ routes.get('/', (_, res) => {
 routes.post('/users', UserController.store)
 routes.post('/session', SessionController.store)
 
+routes.get('/products', ProductController.index)
 routes.post('/products', upload.single('file'), ProductController.store)
 
 export default routes

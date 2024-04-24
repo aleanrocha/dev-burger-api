@@ -28,6 +28,11 @@ class ProductController {
 
     return res.status(201).json({ id: product.id, name, price, path, category })
   }
+
+  async index(_, res) {
+    const products = await Product.findAll()
+    return res.status(200).json(products)
+  }
 }
 
 export default new ProductController()
