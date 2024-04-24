@@ -1,6 +1,8 @@
 import { Router } from 'express'
 import multer from 'multer'
 
+import authMiddleware from './middlewares/auth'
+
 import UserController from './app/controllers/UserController'
 import SessionController from './app/controllers/SessionController'
 import ProductController from './app/controllers/ProductController'
@@ -17,6 +19,8 @@ routes.get('/', (_, res) => {
 
 routes.post('/users', UserController.store)
 routes.post('/session', SessionController.store)
+
+routes.use(authMiddleware)
 
 routes.get('/products', ProductController.index)
 routes.post('/products', upload.single('file'), ProductController.store)
