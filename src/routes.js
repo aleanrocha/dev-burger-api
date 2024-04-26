@@ -8,6 +8,7 @@ import SessionController from './app/controllers/SessionController'
 import ProductController from './app/controllers/ProductController'
 
 import multerConfig from './config/multer'
+import CategoryController from './app/controllers/CategoryController'
 
 const routes = new Router()
 
@@ -24,5 +25,8 @@ routes.use(authMiddleware)
 
 routes.get('/products', ProductController.index)
 routes.post('/products', upload.single('file'), ProductController.store)
+
+routes.get('/categories', CategoryController.index)
+routes.post('/categories', CategoryController.store)
 
 export default routes
