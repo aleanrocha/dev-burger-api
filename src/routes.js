@@ -30,6 +30,7 @@ routes.post('/products', upload.single('file'), ProductController.store)
 routes.get('/categories', CategoryController.index)
 routes.post('/categories', CategoryController.store)
 
+routes.get('/orders', OrderController.index)
 routes.post('/orders', OrderController.store)
 
 export default routes
