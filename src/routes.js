@@ -30,7 +30,7 @@ routes.put('/products/:id', upload.single('file'), ProductController.update)
 
 routes.get('/categories', CategoryController.index)
 routes.post('/categories', upload.single('file'), CategoryController.store)
-// routes.put('/categories/:id', CategoryController.update)
+routes.put('/categories/:id', upload.single('file'), CategoryController.update)
 
 routes.get('/orders', OrderController.index)
 routes.post('/orders', OrderController.store)
