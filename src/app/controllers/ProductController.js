@@ -10,6 +10,7 @@ class ProductController {
       name: Yup.string().required(),
       price: Yup.number().required(),
       category_id: Yup.number().required(),
+      offer: Yup.boolean(),
     })
 
     try {
@@ -25,11 +26,12 @@ class ProductController {
     }
 
     const { filename: path } = req.file
-    const { name, price, category_id } = req.body
+    const { name, price, category_id, offer } = req.body
 
     const product = await Product.create({
       name,
       price,
+      offer,
       category_id,
       path,
     })
@@ -38,7 +40,7 @@ class ProductController {
 
     return res
       .status(201)
-      .json({ id: product.id, name, price, path, category_id })
+      .json({ id: product.id, name, price, offer, path, category_id })
   }
 
   async index(_, res) {
