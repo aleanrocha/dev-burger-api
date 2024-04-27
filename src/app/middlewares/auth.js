@@ -17,6 +17,7 @@ const authMiddleware = (req, res, nx) => {
         throw new Error()
       }
       req.userId = decoded.id
+      req.userName = decoded.name
     })
   } catch (err) {
     res.status(401).json({ error: 'Token is invalid.' })
